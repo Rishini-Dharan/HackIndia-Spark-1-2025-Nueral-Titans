@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Registration - Revolutionizing Mining</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="upload.html">Upload & Process</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="registration-form">
+    <h2>Company Registration</h2>
+    <form id="companyRegistrationForm">
+      <label for="companyName">Company Name:</label>
+      <input type="text" id="companyName" name="companyName" required>
+
+      <label for="companyEmail">Email:</label>
+      <input type="email" id="companyEmail" name="companyEmail" required>
+
+      <label for="companyAddress">Address:</label>
+      <input type="text" id="companyAddress" name="companyAddress" required>
+
+      <label for="companyPhone">Phone:</label>
+      <input type="tel" id="companyPhone" name="companyPhone" required>
+
+      <label for="companyPassword">Password:</label>
+      <input type="password" id="companyPassword" name="companyPassword" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div id="registrationSuccess" style="display: none;">
+      <h3>Registration Successful!</h3>
+      <p>Your unique registration key is: <strong id="registrationKey"></strong></p>
+      <p>Please save this key for future reference.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Mining Tech. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('companyRegistrationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Generate a unique registration key
+      const registrationKey = 'MINING-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+
+      // Display the success message and key
+      document.getElementById('registrationKey').textContent = registrationKey;
+      document.getElementById('registrationSuccess').style.display = 'block';
+      document.getElementById('companyRegistrationForm').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

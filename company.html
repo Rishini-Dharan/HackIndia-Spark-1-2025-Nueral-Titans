@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Login - Revolutionizing Mining</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="upload.html">Upload & Process</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="login-hero">
+    <div class="login-hero-content">
+      <h1>Welcome Back, Company!</h1>
+      <p>Log in to access advanced tools, analytics, and insights tailored for your mining operations.</p>
+    </div>
+  </section>
+
+  <section class="login-form">
+    <center>
+    <h2>Company Login</h2>
+    <form id="companyLoginForm">
+      <label for="companyEmail">Email:</label>
+      <input type="email" id="companyEmail" name="companyEmail" placeholder="Enter your company email" required>
+
+      <label for="companyPassword">Password:</label>
+      <input type="password" id="companyPassword" name="companyPassword" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="login-links">
+      <p>Don't have an account? <a href="company-signup.html">Sign up here</a>.</p>
+      <p>Forgot your password? <a href="company-reset-password.html">Reset it here</a>.</p>
+    </center>
+    </div>
+  </section>
+
+  <section class="login-benefits">
+    <h2>Why Log In?</h2>
+    <div class="benefits-container">
+      <div class="benefit">
+        <h3>1. Advanced Analytics</h3>
+        <p>Access real-time data and insights to optimize your mining operations.</p>
+      </div>
+      <div class="benefit">
+        <h3>2. Custom Tools</h3>
+        <p>Use our specialized tools for ore detection, sorting, and reporting.</p>
+      </div>
+      <div class="benefit">
+        <h3>3. Industry Insights</h3>
+        <p>Stay ahead with the latest trends and updates in the mining industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mining Tech. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('companyLoginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('companyEmail').value;
+      const password = document.getElementById('companyPassword').value;
+
+      // Simulate login validation
+      if (email && password) {
+        alert('Login successful! Redirecting to your dashboard...');
+        window.location.href = 'company-dashboard.html'; // Redirect to company dashboard
+      } else {
+        alert('Please enter valid email and password.');
+      }
+    });
+  </script>
+</body>
+</html>

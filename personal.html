@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Login - Revolutionizing Mining</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+        <li><a href="upload.html">Upload & Process</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="login-hero">
+      <div class="login-hero-content">
+        <h1>Welcome Back!</h1>
+        <p>Log in to access your personalized dashboard and explore the latest insights in mining technology.</p>
+      </div>
+    </section>
+
+    <section class="login-form">
+      <center><h2>Personal Login</h2>
+      <form id="personalLoginForm">
+        <label for="personalEmail">Email:</label>
+        <input type="email" id="personalEmail" name="personalEmail" placeholder="Enter your email" required autocomplete="email">
+
+        <label\ for="personalPassword">Password:</label>
+        <input type="password" id="personalPassword" name="personalPassword" placeholder="Enter your password" required autocomplete="current-password">
+
+        <div class="button-container">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+
+      <div class="login-links">
+        <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+        <p>Forgot your password? <a href="reset-password.html">Reset it here</a>.</p>
+      </center>
+      </div>
+    </section>
+
+    <section class="login-benefits">
+      <center><h2>Why Log In?</h2>
+    </center>
+      <div class="benefits-container">
+        <div class="benefit">
+          <h3>1. Personalized Dashboard</h3>
+          <p>Access your mining insights, analytics, and recommendations in one place.</p>
+        </div>
+        <div class="benefit">
+          <h3>2. Advanced Tools</h3>
+          <p>Use our cutting-edge tools for ore detection, analysis, and reporting.</p>
+        </div>
+        <div class="benefit">
+          <h3>3. Stay Updated</h3>
+          <p>Get the latest updates and trends in the mining industry.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mining Tech. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('personalLoginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('personalEmail').value;
+      const password = document.getElementById('personalPassword').value;
+
+      if (email && password) {
+        alert('✅ Login successful! Redirecting to your dashboard...');
+        window.location.href = 'dashboard.html'; // Redirect to dashboard
+      } else {
+        alert('⚠️ Please enter a valid email and password.');
+      }
+    });
+  </script>
+
+</body>
+</html>

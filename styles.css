@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: linear-gradient(to bottom, #0A2A4A, #1A4B7E, #87CEEB);
+  min-height: 100vh;
+}
+
+header {
+  background-color: rgba(10, 42, 74, 0.8);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero, .login-hero {
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1, .login-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p, .login-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons, .login-options .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-buttons .button, .login-options .button {
+  background-color: #FFD700;
+  color: #1A4B7E;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero-buttons .button:hover, .login-options .button:hover {
+  background-color: #E6C200;
+}
+
+/* Mining Facts Section */
+.mining-facts, .partner-benefits {
+  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mining-facts h2, .partner-benefits h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.facts-container, .benefits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.fact, .benefit {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  width: 45%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fact h3, .benefit h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.fact p, .benefit p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Image Gallery Section */
+.image-gallery {
+  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.image-gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-container img {
+  width: 30%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background-color: rgba(10, 42, 74, 0.8);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+}
+/* Existing CSS for buttons */
+.hero-buttons .button, .login-options .button, .upload-form .file-upload-button, .upload-form button[type="submit"], .login-form button {
+  background-color: #FFD700; /* Gold */
+  color: #1A4B7E; /* Dark blue */
+  padding: 12px 24px; /* Slightly larger padding */
+  border-radius: 8px; /* Rounded corners */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold; /* Bold text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  border: 2px solid transparent; /* Add a border for better contrast */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover effects for buttons */
+.hero-buttons .button:hover, .login-options .button:hover, .upload-form .file-upload-button:hover, .upload-form button[type="submit"]:hover, .login-form button:hover {
+  background-color: #E6C200; /* Darker gold on hover */
+  color: #1A4B7E; /* Keep text color consistent */
+  border-color: #1A4B7E; /* Add border color on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active state for buttons */
+.hero-buttons .button:active, .login-options .button:active, .upload-form .file-upload-button:active, .upload-form button[type="submit"]:active, .login-form button:active {
+  transform: translateY(0); /* Reset lift effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}

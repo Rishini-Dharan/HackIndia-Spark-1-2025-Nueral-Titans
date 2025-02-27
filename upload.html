@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload & Process - Revolutionizing Mining</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1A4B7E;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #0A2A4A;
+      padding: 10px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .upload-page {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 80px; /* To avoid overlap with the header */
+    }
+
+    .upload-page h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .upload-page p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .upload-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .upload-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .upload-form input[type="file"] {
+      display: none;
+    }
+
+    .upload-form .file-upload-button {
+      background-color: #FFD700;
+      color: #1A4B7E;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload-form .file-upload-button.uploaded {
+      background-color: #4CAF50; /* Green color */
+      color: white;
+    }
+
+    .upload-form button[type="submit"] {
+      background-color: #1A4B7E;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .upload-form button[type="submit"]:hover {
+      background-color: #0A2A4A;
+    }
+
+    .upload-result {
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .upload-page h1 {
+        font-size: 2rem;
+      }
+
+      .upload-page p {
+        font-size: 1rem;
+      }
+
+      .upload-form label {
+        font-size: 1rem;
+      }
+
+      .upload-form .file-upload-button,
+      .upload-form button[type="submit"] {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .upload-page h1 {
+        font-size: 1.5rem;
+      }
+
+      .upload-page p {
+        font-size: 0.9rem;
+      }
+
+      .upload-form label {
+        font-size: 0.9rem;
+      }
+
+      .upload-form .file-upload-button,
+      .upload-form button[type="submit"] {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="upload.html">Upload & Process</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="upload-page">
+    <h1>Upload & Process</h1>
+    <p>Upload an image of ore for quality detection and analysis.</p>
+
+    <form class="upload-form" id="uploadForm">
+      <label for="imageUpload">Choose an image:</label>
+      <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+      <label for="imageUpload" id="fileUploadButton" class="file-upload-button">Choose File</label>
+      <button type="submit">Upload</button>
+    </form>
+
+    <div class="upload-result" id="uploadResult">
+      <!-- Results will be displayed here -->
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('imageUpload').addEventListener('change', function (e) {
+      const fileInput = e.target;
+      const fileUploadButton = document.getElementById('fileUploadButton');
+
+      if (fileInput.files.length > 0) {
+        // Change the button text to the uploaded file name
+        fileUploadButton.textContent = fileInput.files[0].name;
+        // Add the 'uploaded' class to change the button color to green
+        fileUploadButton.classList.add('uploaded');
+      } else {
+        // Reset the button text and color if no file is selected
+        fileUploadButton.textContent = 'Choose File';
+        fileUploadButton.classList.remove('uploaded');
+      }
+    });
+
+    document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('imageUpload');
+      const resultDiv = document.getElementById('uploadResult');
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = async function (e) {
+          resultDiv.innerHTML = `<p>Processing image...</p>`;
+
+          // Simulate sending the image to the backend for analysis
+          const imageDescription = "An image of high-grade ore"; // Replace with actual image description
+          const response = await fetch('http://localhost:5000/detect-ores', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ description: imageDescription }),
+          });
+
+          const data = await response.json();
+          resultDiv.innerHTML = `
+            <p>Image processed successfully!</p>
+            <p>Detected Ores: ${data.detected_ores}</p>
+          `;
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        resultDiv.innerHTML = `<p>Please upload an image first.</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
