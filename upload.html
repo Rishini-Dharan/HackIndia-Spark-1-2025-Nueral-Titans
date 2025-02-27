@@ -6,7 +6,119 @@
   <title>Upload & Process - Revolutionizing Mining</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Existing CSS styles... */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1A4B7E;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #0A2A4A;
+      padding: 10px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .upload-page {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 80px; /* To avoid overlap with the header */
+    }
+
+    .upload-page h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .upload-page p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .upload-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .upload-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .upload-form input[type="file"] {
+      display: none;
+    }
+
+    .upload-form .file-upload-button {
+      background-color: #FFD700;
+      color: #1A4B7E;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload-form .file-upload-button.uploaded {
+      background-color: #4CAF50; /* Green color */
+      color: white;
+    }
+
+    .upload-form button[type="submit"] {
+      background-color: #1A4B7E;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .upload-form button[type="submit"]:hover {
+      background-color: #0A2A4A;
+    }
+
+    .upload-result {
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+    }
 
     .uploaded-image {
       max-width: 100%;
@@ -14,6 +126,47 @@
       margin-top: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .upload-page h1 {
+        font-size: 2rem;
+      }
+
+      .upload-page p {
+        font-size: 1rem;
+      }
+
+      .upload-form label {
+        font-size: 1rem;
+      }
+
+      .upload-form .file-upload-button,
+      .upload-form button[type="submit"] {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .upload-page h1 {
+        font-size: 1.5rem;
+      }
+
+      .upload-page p {
+        font-size: 0.9rem;
+      }
+
+      .upload-form label {
+        font-size: 0.9rem;
+      }
+
+      .upload-form .file-upload-button,
+      .upload-form button[type="submit"] {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -84,31 +237,15 @@
       const resultDiv = document.getElementById('uploadResult');
 
       if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        const formData = new FormData();
-        formData.append('image', file);
-
         resultDiv.innerHTML = `<p>Processing image...</p>`;
 
-        try {
-          // Send the image to the backend for analysis
-          const response = await fetch('http://localhost:5000/detect-ores', {
-            method: 'POST',
-            body: formData,
-          });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-
-          const data = await response.json();
+        // Simulate processing delay
+        setTimeout(() => {
           resultDiv.innerHTML = `
             <p>Image processed successfully!</p>
-            <p>Detected Ores: ${data.detected_ores}</p>
+            <p>Detected Ores: Iron, Copper, Gold</p>
           `;
-        } catch (error) {
-          resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
-        }
+        }, 2000); // Simulate a 2-second delay
       } else {
         resultDiv.innerHTML = `<p>Please upload an image first.</p>`;
       }
