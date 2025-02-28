@@ -66,23 +66,7 @@
       margin-bottom: 30px;
     }
 
-    .upload-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .upload-form label {
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .upload-form input[type="file"] {
-      display: none;
-    }
-
-    .upload-form .file-upload-button {
+    .redirect-button {
       background-color: #FFD700;
       color: #1A4B7E;
       padding: 10px 20px;
@@ -90,42 +74,11 @@
       cursor: pointer;
       font-size: 1rem;
       transition: background-color 0.3s ease;
-    }
-
-    .upload-form .file-upload-button.uploaded {
-      background-color: #4CAF50; /* Green color */
-      color: white;
-    }
-
-    .upload-form button[type="submit"] {
-      background-color: #1A4B7E;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
       border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-      margin-top: 20px;
     }
 
-    .upload-form button[type="submit"]:hover {
-      background-color: #0A2A4A;
-    }
-
-    .upload-result {
-      margin-top: 30px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    .uploaded-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    .redirect-button:hover {
+      background-color: #e6b800;
     }
 
     /* Responsive Design */
@@ -138,12 +91,7 @@
         font-size: 1rem;
       }
 
-      .upload-form label {
-        font-size: 1rem;
-      }
-
-      .upload-form .file-upload-button,
-      .upload-form button[type="submit"] {
+      .redirect-button {
         padding: 8px 16px;
         font-size: 0.9rem;
       }
@@ -158,12 +106,7 @@
         font-size: 0.9rem;
       }
 
-      .upload-form label {
-        font-size: 0.9rem;
-      }
-
-      .upload-form .file-upload-button,
-      .upload-form button[type="submit"] {
+      .redirect-button {
         padding: 6px 12px;
         font-size: 0.8rem;
       }
@@ -184,72 +127,17 @@
 
   <section class="upload-page">
     <h1>Upload & Process</h1>
-    <p>Upload an image of ore for quality detection and analysis.</p>
+    <p>Click the button below to analyze ore quality using our advanced tool.</p>
 
-    <form class="upload-form" id="uploadForm">
-      <label for="imageUpload">Choose an image:</label>
-      <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
-      <label for="imageUpload" id="fileUploadButton" class="file-upload-button">Choose File</label>
-      <button type="submit">Upload</button>
-    </form>
-
-    <div class="upload-result" id="uploadResult">
-      <!-- Results will be displayed here -->
-    </div>
-
-    <!-- Container to display the uploaded image -->
-    <div id="imageContainer"></div>
+    <!-- Redirect Button -->
+    <button class="redirect-button" onclick="redirectToStreamlit()">Go to Analysis Tool</button>
   </section>
 
   <script>
-    document.getElementById('imageUpload').addEventListener('change', function (e) {
-      const fileInput = e.target;
-      const fileUploadButton = document.getElementById('fileUploadButton');
-      const imageContainer = document.getElementById('imageContainer');
-
-      if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-          // Display the uploaded image
-          imageContainer.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image" class="uploaded-image">`;
-        };
-
-        // Change the button text to the uploaded file name
-        fileUploadButton.textContent = file.name;
-        // Add the 'uploaded' class to change the button color to green
-        fileUploadButton.classList.add('uploaded');
-
-        reader.readAsDataURL(file);
-      } else {
-        // Reset the button text and color if no file is selected
-        fileUploadButton.textContent = 'Choose File';
-        fileUploadButton.classList.remove('uploaded');
-        imageContainer.innerHTML = ''; // Clear the image container
-      }
-    });
-
-    document.getElementById('uploadForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const fileInput = document.getElementById('imageUpload');
-      const resultDiv = document.getElementById('uploadResult');
-
-      if (fileInput.files.length > 0) {
-        resultDiv.innerHTML = `<p>Processing image...</p>`;
-
-        // Simulate processing delay
-        setTimeout(() => {
-          resultDiv.innerHTML = `
-            <p>Image processed successfully!</p>
-            <p>Detected Ores: Iron</p>
-          `;
-        }, 2000); // Simulate a 2-second delay
-      } else {
-        resultDiv.innerHTML = `<p>Please upload an image first.</p>`;
-      }
-    });
+    function redirectToStreamlit() {
+      // Redirect to the specified Streamlit app
+      window.location.href = "https://filtertype-ns95c9a4j9ctbeprj3tvsd.streamlit.app/";
+    }
   </script>
 </body>
 </html>
