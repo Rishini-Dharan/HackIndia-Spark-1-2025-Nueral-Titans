@@ -66,6 +66,12 @@
       margin-bottom: 30px;
     }
 
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Space between buttons */
+    }
+
     .redirect-button {
       background-color: #FFD700;
       color: #1A4B7E;
@@ -75,6 +81,7 @@
       font-size: 1rem;
       transition: background-color 0.3s ease;
       border: none;
+      text-decoration: none;
     }
 
     .redirect-button:hover {
@@ -94,6 +101,11 @@
       .redirect-button {
         padding: 8px 16px;
         font-size: 0.9rem;
+      }
+
+      .button-container {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 10px;
       }
     }
 
@@ -127,16 +139,24 @@
 
   <section class="upload-page">
     <h1>Upload & Process</h1>
-    <p>Click the button below to analyze ore quality using our advanced tool.</p>
+    <p>Click the buttons below to analyze ore quality or calculate carbon emissions using our advanced tools.</p>
 
-    <!-- Redirect Button -->
-    <button class="redirect-button" onclick="redirectToStreamlit()">Go to Analysis Tool</button>
+    <!-- Button Container -->
+    <div class="button-container">
+      <button class="redirect-button" onclick="redirectToStreamlit()">Carbon Emission Tool</button>
+      <button class="redirect-button" onclick="redirectToCO2Tool()">CO2 & Machine Tool</button>
+    </div>
   </section>
 
   <script>
     function redirectToStreamlit() {
-      // Redirect to the specified Streamlit app
+      // Redirect to the first Streamlit app
       window.location.href = "https://filtertype-ns95c9a4j9ctbeprj3tvsd.streamlit.app/";
+    }
+
+    function redirectToCO2Tool() {
+      // Redirect to the second Streamlit app
+      window.location.href = "https://co2-and-machine-gaecw7kgkuwjmze3bmdsic.streamlit.app/";
     }
   </script>
 </body>
