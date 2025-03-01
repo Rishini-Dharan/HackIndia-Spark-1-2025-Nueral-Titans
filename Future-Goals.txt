@@ -1,0 +1,80 @@
+Our Future Hardware Model in which we can create our own Mining Emission Datasets using the following IOT Models:
+
+
+
+
++-------------------+       +-------------------+        +-------------------+
+| CO2 Sensor        |       | SO2 Sensor        |       | NOx Sensor        |
+| Analog Out -> A0  |       | Analog Out -> A1  |       | Analog Out -> A2  |
++-------------------+       +-------------------+       +-------------------+
+        |                           |                           |
+        |                           |                           |
+        v                           v                           v
++-----------------------------------------------------------------------------+
+| Microcontroller (Arduino/Raspberry Pi/ESP32)                  |
+|                                                                             |
+| +-----------+       +-----------+       +-----------+       +-----------+   |
+| | A0        |       | A1        |       | A2        |       | A3        |   |
+| +-----------+       +-----------+       +-----------+       +-----------+   |
+|                                                                             |
+| +-----------+       +-----------+       +-----------+       +-----------+   | 
+| | A4        |       | A5        |       | A6        |       | A7        |   |
+| +-----------+       +-----------+       +-----------+       +-----------+   |
+|                                                                             |
+| +-----------------------------------------------------------------------+   |
+| | SD Card Module (CS -> Pin 4)                                          |   |
+| +-----------------------------------------------------------------------+   |
++-----------------------------------------------------------------------------+
+1.	Microcontroller:
+o	Arduino Uno or ESP32 (preferred for IoT connectivity).
+o	ESP32 is recommended because it has built-in Wi-Fi for IoT connectivity.
+2.	Sensors:
+o	CO2 Sensor: MQ-135 or CCS811 (for air quality).
+o	SO2 Sensor: MQ-136 (for sulfur dioxide detection).
+o	NOx Sensor: MQ-131 (for nitrogen oxides detection).
+o	Salinity Sensor: EC Sensor or TDS Sensor (for water salinity).
+o	Hardness Sensor: TDS Sensor (can also measure water hardness).
+o	Lead Sensor: Analog Lead Detection Sensor.
+o	Mercury Sensor: Mercury Detection Sensor.
+o	Arsenic Sensor: Arsenic Detection Sensor.
+3.	Additional Components:
+o	Breadboard and jumper wires.
+o	Power supply (5V or 3.3V, depending on the sensors).
+o	SD Card Module (optional, for local data storage).
+o	IoT Platform (ThingSpeak, Blynk, or Firebase).
+________________________________________
+Step 3: Sensor Connections
+Each sensor will be connected to the microcontroller (ESP32 or Arduino). Below is the connection guide:
+CO2 Sensor (MQ-135):
+•	VCC → 5V (or 3.3V, depending on the sensor).
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A0 on Arduino or GPIO36 on ESP32).
+SO2 Sensor (MQ-136):
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A1 on Arduino or GPIO39 on ESP32).
+NOx Sensor (MQ-131):
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A2 on Arduino or GPIO34 on ESP32).
+Salinity Sensor (EC Sensor):
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A3 on Arduino or GPIO35 on ESP32).
+Hardness Sensor (TDS Sensor):
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A4 on Arduino or GPIO32 on ESP32).
+Lead Sensor:
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A5 on Arduino or GPIO33 on ESP32).
+Mercury Sensor:
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A6 on Arduino or GPIO25 on ESP32).
+Arsenic Sensor:
+•	VCC → 5V.
+•	GND → GND.
+•	AOUT → Analog Pin (e.g., A7 on Arduino or GPIO26 on ESP32).
+ 
