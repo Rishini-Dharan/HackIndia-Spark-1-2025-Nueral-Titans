@@ -2,7 +2,7 @@
 
 **Predicts CO₂ output and machine failure for mining equipment, then recommends the filtration system that fits the site.**
 
-🏆 **Winner, HackIndia 2025 preliminary round** (team Neural Titans) · the result that sent our team to nationals, which we then won with [Q-Guardian OS](https://github.com/Rishini-Dharan/HackIndia2026).
+🏆 **Winner, HackIndia 2025 preliminary round** (team Neural Titans) · the result that sent our team to nationals, where we won the AI Track with Q-Guardian (later published at IEEE AIDML 2026).
 
 **[▶ Open the live site](https://rishini-dharan.github.io/HackIndia-Spark-1-2025-Nueral-Titans/)**
 
